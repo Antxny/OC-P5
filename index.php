@@ -61,7 +61,7 @@ try {
 
 	            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
 
-	                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+	                submitComment($_GET['id'], $_POST['author'], $_POST['comment']);
 
 	            } else {
 	                // Autre exception
@@ -71,6 +71,42 @@ try {
 	        } else {
 	        	// Autre exception
 	            throw new Exception('Aucun identifiant de billet envoyé');
+
+	        }
+
+	    } elseif ($_GET['action'] == 'manageComments') {
+
+	    	if ($_SESSION['rank'] == 2) {
+	    		
+	    		manageComments();
+
+	    	} else {
+
+	    		header('location: index.php');
+
+	    	}
+
+	    } elseif ($_GET['action'] == 'approveComment') {
+
+	    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+	        	approveComment();
+
+	        } else {
+	            // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+
+	        }
+
+	    } elseif ($_GET['action'] == 'disapproveComment') {
+
+	    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+	        	disapproveComment();
+
+	        } else {
+	            // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de commentaire envoyé');
 
 	        }
 
