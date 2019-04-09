@@ -475,6 +475,52 @@ input[type=number]::-webkit-outer-spin-button {
 	background-position: right center;
 }
 
+/*--- Login & Register ---*/
+
+.form-sign {
+	margin-top: 5%;
+}
+
+.form-sign label {
+	font-weight: 500;
+	font-size: 1.1rem;
+}
+
+.form-sign input:focus, .form-sign textarea:focus {
+	border: 1px solid #bababa !important;
+}
+
+.form-sign button {
+	background-size: 200% auto;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-image: linear-gradient(to right, #ff9800 0%, #d17c00 50%, #ff9800 100%);
+    transition: 0.5s;
+    height: 40px;
+    cursor: pointer;
+}
+
+.form-sign button:hover {
+	background-position: right center;
+}
+
+.form-sign .already {
+	color: #6d6d6d;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.btn-back-index {
+	color: #155724;
+	text-decoration: underline;
+}
+
+.btn-back-index:hover {
+	color: #155724;
+	font-weight: 500
+}
+
 /*-------- Posts --------*/
 
 .btn-add-post {
