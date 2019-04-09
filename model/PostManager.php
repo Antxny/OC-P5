@@ -26,4 +26,14 @@ class PostManager extends Manager {
 		
 	}
 
+	function getPost($postId){
+
+	    $req = $this->db->prepare('SELECT * FROM posts WHERE id = ?');
+	    $req->execute(array($postId));
+	    $post = $req->fetch();
+
+	    return $post;
+
+	}
+
 }

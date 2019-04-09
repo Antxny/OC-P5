@@ -474,3 +474,147 @@ input[type=number]::-webkit-outer-spin-button {
 .form-contact button:hover {
 	background-position: right center;
 }
+
+/*-------- Posts --------*/
+
+.btn-add-post {
+	padding: 10px 15px;
+	background-size: 200% auto;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-image: linear-gradient(to right, #ff9800 0%, #d17c00 50%, #ff9800 100%);
+    transition: 0.5s;
+}
+
+.btn-add-post:hover {
+	text-decoration: none;
+	color: #fff;
+	background-position: right center;
+}
+
+.post {
+	display: flex;
+	margin: 50px auto;
+	padding: 0;
+}
+
+.post .thumbnail img {
+	width: 250px;
+}
+
+.post .infos {
+	padding-left: 10px;
+}
+
+.post .infos h1 {
+	font-weight: 500;
+	font-size: 2.25rem;
+}
+
+.post .infos p {
+	text-align: justify;
+	margin: 10px 0;
+}
+
+.post .infos .more {
+	display: flex;
+	justify-content: space-between;
+}
+
+.post .infos .more a {
+	color: #d68300;
+}
+
+.post .infos .more a:hover {
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.post .infos .more a:before {
+	font-family: 'Font Awesome 5 Pro';
+	font-weight: 600;
+	content: '\f14c';
+	margin-right: 5px;
+}
+
+
+.post .infos .more span {
+	color: #909090;
+}
+
+/*--------- Post ---------*/
+
+.btn-back-posts {
+	color: #d68300;
+}
+
+.btn-back-posts:hover {
+	text-decoration: none;
+	color: #d68300;
+	font-weight: 500;
+}
+
+.post-header-image {
+	width: 100%;
+	height: 400px;
+	margin-bottom: 25px;
+	background-size: 100%;
+	background-position: center;
+	transition: background-size 0.1s;
+	filter: grayscale(1);
+	transition: 0.2s;
+}
+
+.post-header-image:hover {
+	background-size: 105%;
+	filter: grayscale(0);
+}
+
+.post-view {
+	margin: 0 auto;
+}
+
+.post-view .admin-tools {
+	display: flex;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.post-view .admin-tools .tool-delete {
+	color: #fff;
+	background-color: #db5757;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.post-view .admin-tools .tool-delete:hover {
+	text-decoration: none;
+	background-color: #ad3939;
+}
+
+.post-view .admin-tools .tool-edit {
+	color: #fff;
+	background-color: #aaaaaa;
+	padding: 5px;
+	border-radius: 3px;
+}
+
+.post-view .admin-tools .tool-edit:hover {
+	text-decoration: none;
+	background-color: #8c8c8c;
+}
+
+.post-view span {
+	color: #909090;
+}
+
+.post-view .content {
+	margin: 25px 0;
+	text-align: justify;
+}
+
+.post-view .last-update {
+	display: flex;
+	flex-direction: row-reverse;
+}

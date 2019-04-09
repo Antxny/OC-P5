@@ -19,3 +19,12 @@ function listAllPosts(){
     require('view/frontend/listPostsView.php');
 
 }
+
+function post(){
+
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+
+    require('view/frontend/postView.php');
+
+}
