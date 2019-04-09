@@ -34,7 +34,7 @@ $page = 'blog';
     <h2>Commentaires</h2>
 
     <div class="form-comment">
-        <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+        <form action="index.php?action=submitComment&amp;id=<?= $post['id'] ?>" method="POST">
             <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="form-comment-name">Votre nom</label>
