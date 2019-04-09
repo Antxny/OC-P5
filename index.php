@@ -2,6 +2,8 @@
 setlocale(LC_TIME, 'fr','fr_FR','fr_FR@euro','fr_FR.utf8','fr-FR','fra');
 require('controller/controller.php');
 
+session_start();
+
 try {
 	
 	if (isset($_GET['action'])) {
@@ -72,6 +74,51 @@ try {
 
 	        }
 
+	    } elseif ($_GET['action'] == 'login') {
+
+	    	if (!$_POST) {
+
+	    		require('view/frontend/loginView.php');
+
+	    	} else {
+
+	    		if (!empty($_POST['username']) && !empty($_POST['password']) ) {
+
+	    			connectUser($_POST['username'], $_POST['password']);
+
+	    		} else {
+
+	    			$error = 'Veuillez completer tous les champs !';
+	    			require('view/frontend/registerView.php');
+
+	    		}
+
+	    	}
+
+	    } elseif ($_GET['action'] == 'register') {
+	            
+	    	if (!$_POST) {
+
+	    		require('view/frontend/registerView.php');
+
+	    	} else {
+ 
+	    		if (!empty($_POST['username']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
+
+	                registerUser($_POST['username'], $_POST['email'], $_POST['password'], $_POST['password2']);
+
+	            } else {
+
+	                $error = 'Veuillez completer tous les champs !';
+	                require('view/frontend/registerView.php');
+                    
+	            }
+	    	}
+	    	
+	    } elseif ($_GET['action'] == 'logout') {
+	            
+	    	logoutUser();
+	    	
 	    }
 
 	} else {

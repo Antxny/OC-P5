@@ -2,6 +2,7 @@
 
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
 
 function listHomePosts(){
 
@@ -60,7 +61,7 @@ function submitComment($postId, $author, $comment){
 
     $commentManager = new CommentManager();
 
-    $affectedLines = $commentManager->addComment($postId, $author, $comment);
+    $affectedLines = $commentManager->submitComment($postId, $author, $comment);
 
     if ($affectedLines === false) {
 
@@ -98,4 +99,46 @@ function manageComments(){
 
     require('view/frontend/commentsPannelView.php');
     
+}
+
+function connectUser($username, $password){
+
+    $userManager = new UserManager();
+
+    $userInfos = $userManager->connectUser($username, $password);
+
+    if ($userInfos === false) {
+
+        $error = 'Nom d\'utilisateur et/ou mot de passe incorrect :(';
+        require('view/frontend/loginView.php');
+
+    } else {
+
+        $_SESSION['id'] = $userInfos['id'];
+        $_SESSION['username'] = $userInfos['username'];
+        $_SESSION['rank'] = $userInfos['rank'];
+
+        header('location: index.php');
+
+    }
+
+}
+
+function registerUser($username, $email, $password, $password2){
+
+    $userManager = new UserManager();
+
+    $UserRegistration = $userManager->registerUser($username, $email, $password, $password2);
+
+}
+
+function logoutUser(){
+
+    if (isset($_SESSION)) {
+
+        session_destroy();
+        header('location: index.php');
+            
+    } 
+
 }
