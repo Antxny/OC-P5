@@ -18,4 +18,12 @@ class PostManager extends Manager {
 		
 	}
 
+	function getAllPosts(){
+
+		$req = $this->db->query('SELECT * FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+
+		return $req;
+		
+	}
+
 }

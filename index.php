@@ -6,7 +6,11 @@ try {
 	
 	if (isset($_GET['action'])) {
 
+		if ($_GET['action'] == 'listPosts') {
 
+	        listAllPosts();
+
+	    }
 
 	} else {
 
