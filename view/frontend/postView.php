@@ -28,6 +28,50 @@ $page = 'blog';
     <span class="last-update">Dernière modification : <?= strftime("%d %B %Y à %Hh%M", strtotime($post['update_date'])) ?></span>
 </div>
 
+<hr class="col-md-6 mx-auto">
+
+<div class="comments col-md-6">
+    <h2>Commentaires</h2>
+
+    <div class="form-comment">
+        <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    <label for="form-comment-name">Votre nom</label>
+                    <input type="text" class="form-control" name="author" id="form-comment-name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form-comment-comment">Votre commentaire</label>
+                <textarea class="form-control" name="comment" id="form-comment-comment" required></textarea>
+            </div>
+            <button type="submit" class="col-lg-3" name="send-comment" id="form-comment-send">Soumettre</button>
+        </form>
+    </div>
+
+    <?php 
+    while ($comment = $comments->fetch()){
+        if ($comment['status'] == 1):
+    ?>
+    <div class="comment">
+        <div>
+            <img src="public/img/users/default.jpg" alt="" class="avatar">
+        </div>
+        <div>
+            <span class="author"><?= htmlspecialchars($comment['author']) ?></span>
+            <br>
+            <span class="comment-date">le <?= strftime("%d/%m/%Y à %Hh%M", strtotime($comment['comment_date'])) ?></span>
+        </div>
+        <p class="content"><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    </div>
+
+    <?php 
+        endif;
+    }
+    ?>
+
+</div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
