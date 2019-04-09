@@ -618,3 +618,56 @@ input[type=number]::-webkit-outer-spin-button {
 	display: flex;
 	flex-direction: row-reverse;
 }
+
+/*------- Add Post -------*/
+
+.top-bar-infos {
+	margin-top: 25px;
+}
+
+.form-add-post p {
+	color: #909090;
+}
+
+.form-add-post label {
+	color: #6d6d6d;
+}
+
+.form-add-post textarea {
+	height: 500px;
+	min-height: 150px;
+	max-height: 500px;
+}
+
+.form-add-post textarea::-webkit-scrollbar {
+	width: 5px;
+	background-color: #eaeaea;
+}
+
+.form-add-post  textarea::-webkit-scrollbar-thumb {
+	background-color: #e28f00;
+	border-radius: 5px;
+}
+
+.form-add-post .form-group input:focus, .form-add-post .form-group textarea:focus {
+	border: 1px solid #bababa !important;
+}
+
+.custom-file-input ~ .custom-file-label::after {
+    content: 'Parcourir';
+}
+
+.form-add-post button {
+    background-size: 200% auto;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-image: linear-gradient(to right, #ff9800 0%, #d17c00 50%, #ff9800 100%);
+    transition: 0.5s;
+    height: 40px;
+    cursor: pointer;
+}
+
+.form-add-post button:hover {
+	background-position: right center;
+}

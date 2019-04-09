@@ -36,4 +36,28 @@ class PostManager extends Manager {
 
 	}
 
+	function addPost($author, $title, $content){
+
+		$addpost = $this->db->prepare('INSERT INTO posts (title, content, author) VALUES (?, ?, ?)');
+	    $affectedLines = $addpost->execute(array($title, $content, $author));
+	    $lastId = $this->db->lastInsertId();
+
+	    if (isset($_FILES['thumbnail'])  AND !empty($_FILES['thumbnail']['name'])) {
+
+	    	$path = 'public/img/blog/thumbnails/' .$lastId .'.jpg';
+	    	move_uploaded_file($_FILES['thumbnail']['tmp_name'], $path);
+
+	    }
+
+	    header('location: index.php?action=listPosts');
+
+	}
+
+	function deletePost($postId){
+
+		$deletepost = $this->db->prepare('DELETE FROM posts WHERE id = ?');
+		$affectedLines = $deletepost->execute(array($postId));
+
+	}
+
 }

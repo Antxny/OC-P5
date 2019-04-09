@@ -28,3 +28,26 @@ function post(){
     require('view/frontend/postView.php');
 
 }
+
+function addPost($author, $title, $content){
+
+    $postManager = new PostManager();
+
+    $affectedLines = $postManager->addPost($author, $title, $content);
+
+    if ($affectedLines === false) {
+
+        throw new Exception("Impossible d'ajouter l'article !");
+
+    } 
+
+}
+
+function deletePost(){
+
+    $postManager = new PostManager();
+    $postdelete = $postManager->deletePost($_GET['id']);
+
+    header('Location: index.php?action=listPosts');
+
+}
