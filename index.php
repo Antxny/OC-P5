@@ -159,7 +159,35 @@ try {
 
 	} else {
 
-		listHomePosts();
+	    if ($_POST) {
+
+	    	if (isset($_POST['send-email'])) {
+
+	    		if (!empty($_POST['name']) && !empty($_POST['f-name']) && !empty($_POST['email']) && !empty($_POST['message'])) {
+
+		        	sendMail($_POST['name'], $_POST['f-name'], $_POST['email'], $_POST['subject'], $_POST['message']);
+
+		        	$success = 'Merci, votre message a bien été envoyé !';
+
+		        	listHomePosts();
+		        	
+
+		    	} else {
+
+		        	$error = 'Veuillez completer tous les champs obligatoires.';
+
+		        	listHomePosts();
+	                    
+		        }
+
+	    	}
+
+	    } else {
+
+	    	listHomePosts();
+
+	    }
+
 	}
 
 } catch(Exception $e) { // S'il y a eu une erreur, alors...

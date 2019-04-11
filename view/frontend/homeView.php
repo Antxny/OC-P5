@@ -135,6 +135,12 @@ $page = 'home';
              	<input type="email" class="form-control" name="email" id="form-contact-email" required>
              </div>
         </div>
+        <div class="row">
+             <div class="form-group col-lg-12">
+             	<label for="form-contact-subject">Sujet*</label>
+             	<input type="text" class="form-control" name="subject" id="form-contact-subject" required>
+             </div>
+        </div>
         <div class="form-group">
             <label for="form-contact-message">Votre message*</label>
             <textarea class="form-control" name="message" id="form-contact-message" required></textarea>

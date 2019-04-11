@@ -3,6 +3,7 @@
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
+require_once('model/MailManager.php');
 
 function listHomePosts(){
 
@@ -140,5 +141,19 @@ function logoutUser(){
         header('location: index.php');
             
     } 
+
+}
+
+function sendMail($name, $f_name, $email, $subject, $message){
+
+    $mailManager = new MailManager();
+
+    $affectedLines = $mailManager->sendMail($name, $f_name, $email, $subject, $message);
+
+    if ($affectedLines === false) {
+
+        throw new Exception("Impossible d'envoyer le message' !");
+
+    }
 
 }
