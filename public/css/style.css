@@ -555,7 +555,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .post .infos h1 {
 	font-weight: 500;
-	font-size: 2.25rem;
+	font-size: 1.8rem;
 }
 
 .post .infos p {
@@ -748,8 +748,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*------- Add Post -------*/
 
+.back-btn {
+	padding-top: 60px;
+}
+
 .top-bar-infos {
 	margin-top: 25px;
+}
+
+.form-add-post {
+	margin-bottom: 60px;
 }
 
 .form-add-post p {

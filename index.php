@@ -43,6 +43,34 @@ try {
 	            }
 	    	}
 
+	    } elseif ($_GET['action'] == 'editPost') {
+
+	    	if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+	            if (!$_POST) {
+
+	    			editPost();
+
+	    		} else {
+
+		    		if (!empty($_POST['author']) && !empty($_POST['title']) && !empty($_POST['content'])) {
+
+		                confirmEditPost($_POST['author'], $_POST['title'], $_POST['content']);
+
+		            } else {
+
+		            	$error = 'test';
+		                editPost();
+	                    
+		            }
+		    	}
+
+	        } else {
+	            // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+
+	        }
+
 	    } elseif ($_GET['action'] == 'deletePost') {
 
 	    	if (isset($_GET['id']) && $_GET['id'] > 0) {

@@ -53,6 +53,32 @@ class PostManager extends Manager {
 
 	}
 
+	function editPost($postId){
+
+	    $req = $this->db->prepare('SELECT * FROM posts WHERE id = ?');
+	    $req->execute(array($postId));
+	    $post = $req->fetch();
+
+	    return $post;
+
+	}
+
+	function confirmEditPost($postId, $author, $title, $content){
+
+		$editpost = $this->db->prepare('UPDATE posts SET title = ?, content = ?, author = ?, update_date = NOW() WHERE id = ? ');
+		$affectedLines = $editpost->execute(array($title, $content, $author, $postId));
+
+		if (isset($_FILES['thumbnail'])  AND !empty($_FILES['thumbnail']['name'])) {
+
+	    	$path = 'public/img/blog/thumbnails/' .$postId .'.jpg';
+	    	move_uploaded_file($_FILES['thumbnail']['tmp_name'], $path);
+
+	    }
+
+		header('location: index.php?action=post&id=' .$postId);
+
+	}
+
 	function deletePost($postId){
 
 		$deletepost = $this->db->prepare('DELETE FROM posts WHERE id = ?');

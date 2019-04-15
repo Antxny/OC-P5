@@ -38,12 +38,32 @@ function post(){
 function addPost($author, $title, $content){
 
     $postManager = new PostManager();
-
     $affectedLines = $postManager->addPost($author, $title, $content);
 
     if ($affectedLines === false) {
 
         throw new Exception("Impossible d'ajouter l'article !");
+
+    } 
+
+}
+
+function editPost(){
+
+    $postManager = new PostManager();
+    $post = $postManager->editPost($_GET['id']);
+    require('view/frontend/editPostView.php');
+
+}
+
+function confirmEditPost($author, $title, $content){
+
+    $postManager = new PostManager();
+    $affectedLines = $postManager->confirmEditPost($_GET['id'], $author, $title, $content);
+
+    if ($affectedLines === false) {
+
+        throw new Exception("Impossible de modifier l'article !");
 
     } 
 
