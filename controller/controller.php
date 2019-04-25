@@ -166,14 +166,22 @@ function logoutUser(){
 
 function sendMail($name, $f_name, $email, $subject, $message){
 
-    $mailManager = new MailManager();
+    if (!empty($name) && !empty($f_name) && !empty($email) && !empty($message)) {
 
-    $affectedLines = $mailManager->sendMail($name, $f_name, $email, $subject, $message);
+        $_SESSION['mail_msg'] = array('Merci, votre message a bien été envoyé !', 'success') ;
 
-    if ($affectedLines === false) {
+        $mailManager = new MailManager();
+        $affectedLines = $mailManager->sendMail($name, $f_name, $email, $subject, $message);
 
-        throw new Exception("Impossible d'envoyer le message' !");
+        listHomePosts();         
 
+    } else {
+        
+        $_SESSION['mail_msg'] = array('Veuillez completer tous les champs obligatoires.', 'danger') ;
+
+        listHomePosts();
+                        
     }
+
 
 }
