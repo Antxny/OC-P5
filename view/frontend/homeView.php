@@ -112,6 +112,7 @@ $page = 'home';
 
         <?php endif ?>
 
+		<h1>Me contacter</h1>
         <p>Les champs indiqués par un asterisque (*) sont obligatoires.</p>
         <div class="row">
             <div class="form-group col-lg-6">
