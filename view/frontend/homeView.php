@@ -97,27 +97,22 @@ $page = 'home';
 			<li><i class="fas fa-spinner"></i> Améliorez une application existante de ToDo & Co</li>
 			<li><i class="fas fa-spinner"></i> Effectuez un stage ou construisez une veille technologique</li>
 		</ul>
-		<a href="https://openclassrooms.com/fr/paths/59-developpeur-dapplication-php-symfony">Voir le parcours en détail</a>
+		<a href="https://openclassrooms.com/fr/paths/59-developpeur-dapplication-php-symfony" target="_blank">Voir le parcours en détail</a>
 	</div>
 </div>
 
 <div class="form-contact">
 	<form action="index.php" method="POST" class="col-md-6 mx-auto">
 
-        <?php if (isset($error)): ?>
+        <?php if (isset($_SESSION['mail_msg'])): ?>
             
-        <div class="alert alert-danger ?>" role="alert">
-            <span><?= $error ?></span>
-        </div>
-
-        <?php elseif (isset($success)): ?>
-    
-        <div class="alert alert-success ?>" role="alert">
-            <span>Merci, votre message a bien été envoyé !</span>
+        <div class="alert alert-<?= $_SESSION['mail_msg'][1] ?> alert-explode" role="alert">
+            <span><?= $_SESSION['mail_msg'][0] ?></span>
         </div>
 
         <?php endif ?>
 
+		<h1>Me contacter</h1>
         <p>Les champs indiqués par un asterisque (*) sont obligatoires.</p>
         <div class="row">
             <div class="form-group col-lg-6">

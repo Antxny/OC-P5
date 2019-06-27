@@ -29,7 +29,7 @@ function post(){
     $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+    $comments = $commentManager->getComments(filter_input(INPUT_GET, 'id'));
 
     require('view/frontend/postView.php');
 
@@ -51,7 +51,7 @@ function addPost($author, $title, $content){
 function editPost(){
 
     $postManager = new PostManager();
-    $post = $postManager->editPost($_GET['id']);
+    $post = $postManager->editPost(filter_input(INPUT_GET, 'id'));
     require('view/frontend/editPostView.php');
 
 }
@@ -98,7 +98,7 @@ function submitComment($postId, $author, $comment){
 function approveComment(){
 
     $commentManager = new CommentManager();
-    $commentapprove = $commentManager->approveComment($_GET['id']);
+    $commentapprove = $commentManager->approveComment(filter_input(INPUT_GET, 'id'));
 
     header('Location: index.php?action=manageComments');
 
@@ -166,14 +166,22 @@ function logoutUser(){
 
 function sendMail($name, $f_name, $email, $subject, $message){
 
-    $mailManager = new MailManager();
+    if (!empty($name) && !empty($f_name) && !empty($email) && !empty($message)) {
 
-    $affectedLines = $mailManager->sendMail($name, $f_name, $email, $subject, $message);
+        $_SESSION['mail_msg'] = array('Merci, votre message a bien été envoyé !', 'success') ;
 
-    if ($affectedLines === false) {
+        $mailManager = new MailManager();
+        $affectedLines = $mailManager->sendMail($name, $f_name, $email, $subject, $message);
 
-        throw new Exception("Impossible d'envoyer le message' !");
+        listHomePosts();         
 
+    } else {
+        
+        $_SESSION['mail_msg'] = array('Veuillez completer tous les champs obligatoires.', 'danger') ;
+
+        listHomePosts();
+                        
     }
+
 
 }

@@ -42,7 +42,7 @@ class PostManager extends Manager {
 	    $affectedLines = $addpost->execute(array($title, $content, $author));
 	    $lastId = $this->db->lastInsertId();
 
-	    if (isset($_FILES['thumbnail'])  AND !empty($_FILES['thumbnail']['name'])) {
+	    if (isset($_FILES['thumbnail']) AND !empty($_FILES['thumbnail']['name'])) {
 
 	    	$path = 'public/img/blog/thumbnails/' .$lastId .'.jpg';
 	    	move_uploaded_file($_FILES['thumbnail']['tmp_name'], $path);
@@ -83,6 +83,9 @@ class PostManager extends Manager {
 
 		$deletepost = $this->db->prepare('DELETE FROM posts WHERE id = ?');
 		$affectedLines = $deletepost->execute(array($postId));
+
+		$path = 'public/img/blog/thumbnails/' .$postId .'.jpg';
+		unlink($path);
 
 	}
 

@@ -545,8 +545,13 @@ input[type=number]::-webkit-outer-spin-button {
 	padding: 0;
 }
 
+.post .img-post {
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
 .post .thumbnail img {
-	width: 250px;
 }
 
 .post .infos {

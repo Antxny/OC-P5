@@ -24,10 +24,10 @@ while ($data = $posts->fetch()){
 ?>
 
 <div class="post col-md-6">
-    <div class="thumbnail">
+    <div class="thumbnail col-md-3 col-sm-5">
 
         <?php if (file_exists('public/img/blog/thumbnails/' .$data['id'] . '.jpg')): ?>
-            <img src="public/img/blog/thumbnails/<?= htmlspecialchars($data['id']) .'.jpg' ?>" alt="">
+            <div class="img-post" style="background-image: url(public/img/blog/thumbnails/<?= $data['id'] ?>.jpg)"></div>
         <?php else: ?>
             <img src="public/img/blog/thumbnails/default.jpg" alt="">
         <?php endif ?>
@@ -38,7 +38,7 @@ while ($data = $posts->fetch()){
             <?php 
 
             if (strlen($data['title']) > 25) {
-                $data['title'] = substr($data['title'], 0, 30) .'...';
+                $data['title'] = substr($data['title'], 0, 40) .'...';
 
                 echo htmlspecialchars($data['title']);
 
@@ -52,9 +52,9 @@ while ($data = $posts->fetch()){
         <p>
             <?php 
 
-            if (strlen($data['content']) > 25) {
+            if (strlen($data['content']) > 200) {
 
-                $data['content'] = substr($data['content'], 0, 275) .'...';
+                $data['content'] = substr($data['content'], 0, 200) .'...';
 
                 echo nl2br(htmlspecialchars($data['content']));
 
