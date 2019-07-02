@@ -12,7 +12,7 @@ $page = 'home';
    	<div class="profil-card col-lg-4 col-md-8 col-sm-8 col-10">
    		<img src="public/img/photo.jpg" alt="">
    		<h1>Antony Vergne</h1>
-   		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quod commodi impedit facere ipsa.</p>
+   		<p>Étudiant en développement web / Openclassrooms - PHP / Symfony</p>
    		<a href="public/pdf/CV_VERGNE_Antony.pdf" target="_blank" class="open-cv"><i class="fal fa-file-pdf fa-lg"></i><span>Visionner mon CV</span></a>
    		<ul class="col-3">
 			<li><a href="https://github.com/RayyZen/" target="_blank"><i class="fab fa-github fa-lg"></i></a></li>
