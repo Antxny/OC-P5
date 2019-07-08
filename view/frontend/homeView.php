@@ -23,7 +23,7 @@ $page = 'home';
 </div>
 
 <div class="preview-blog">
-	<div class="lasts-posts col-lg-8">
+	<div class="lasts-posts col-11 ">
 
 		<?php 
 
@@ -31,7 +31,7 @@ $page = 'home';
 
 		?>
 
-		<div class="h-post col-lg-3">
+		<div class="h-post col-12 col-md-3">
 			<div class="thumbnail-post" style="background-image: url(public/img/blog/thumbnails/<?= $data['id'] ?>.jpg)"></div>
 			<div class="h-post-content">
 				<h1>
@@ -69,7 +69,7 @@ $page = 'home';
 			</div>
 			<div class="h-post-infos">
 				<span><i class="fas fa-user"></i><?= $data['author'] ?></span>
-				<span><?= strftime("%d %B %Y", strtotime($data['creation_date'])) ?><i class="fas fa-calendar-alt"></i></span>
+				<span><?= strftime("%d %B %Y", strtotime($data['update_date'])) ?><i class="fas fa-calendar-alt"></i></span>
 			</div>
 		</div>
 
@@ -84,7 +84,7 @@ $page = 'home';
 </div>
 
 <div class="my-degree">
-	<div class="degree-content col-md-6">
+	<div class="degree-content col-10 col-lg-6">
 		<img src="public/img/openclassrooms.png" alt="openclassrooms-logo">
 		<h1>Spécialité PHP / Symfony</h1>
 		<ul>
@@ -102,7 +102,7 @@ $page = 'home';
 </div>
 
 <div class="form-contact">
-	<form action="index.php" method="POST" class="col-md-6 mx-auto">
+	<form action="index.php" method="POST" class="col-10 col-lg-6 mx-auto">
 
         <?php if (isset($_SESSION['mail_msg'])): ?>
             
@@ -115,23 +115,23 @@ $page = 'home';
 		<h1>Me contacter</h1>
         <p>Les champs indiqués par un asterisque (*) sont obligatoires.</p>
         <div class="row">
-            <div class="form-group col-lg-6">
+            <div class="form-group col-12 col-lg-6">
                 <label for="form-contact-name">Votre nom*</label>
                 <input type="text" class="form-control" name="name" id="form-contact-name" required>
             </div>
-            <div class="form-group col-lg-6">
+            <div class="form-group col-12 col-lg-6">
                 <label for="form-contact-name">Votre prénom*</label>
                 <input type="text" class="form-control" name="f-name" id="form-contact-f-name" required>
             </div>
         </div>
         <div class="row">
-             <div class="form-group col-lg-12">
+             <div class="form-group col-12">
              	<label for="form-contact-email">Votre email*</label>
              	<input type="email" class="form-control" name="email" id="form-contact-email" required>
              </div>
         </div>
         <div class="row">
-             <div class="form-group col-lg-12">
+             <div class="form-group col-12">
              	<label for="form-contact-subject">Sujet*</label>
              	<input type="text" class="form-control" name="subject" id="form-contact-subject" required>
              </div>
@@ -140,7 +140,7 @@ $page = 'home';
             <label for="form-contact-message">Votre message*</label>
             <textarea class="form-control" name="message" id="form-contact-message" required></textarea>
         </div>
-        <button type="submit" class="col-lg-3" name="send-email" id="form-contact-send">Envoyer</button>
+        <button type="submit" class="col-6 col-lg-3" name="send-email" id="form-contact-send">Envoyer</button>
     </form>
 </div>
 

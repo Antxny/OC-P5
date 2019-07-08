@@ -9,12 +9,12 @@ $page = 'blog';
 <?php ob_start(); ?>
 
 <div class="back-btn">
-    <a href="index.php?action=post&id=<?= $post['id'] ?>" class="btn-back-posts offset-md-3"><i class="far fa-chevron-left"></i> Retourner sur la page de l'article</a>
-    <hr class="col-md-6 mx-auto">
+    <a href="index.php?action=post&id=<?= $post['id'] ?>" class="btn-back-posts offset-sm-1 offset-lg-3"><i class="far fa-chevron-left"></i> Retourner sur la page de l'article</a>
+    <hr class=" col-11 col-md-10 col-lg-6 mx-auto">
 </div>
 
 <div class="form-add-post" >
-    <form action="index.php?action=editPost&id=<?= $post['id'] ?>" method="POST" enctype="multipart/form-data" class="col-md-6 mx-auto">
+    <form action="index.php?action=editPost&id=<?= $post['id'] ?>" method="POST" enctype="multipart/form-data" class=" col-11 col-md-10 col-lg-6 mx-auto">
 
         <?php if (isset($error)) { ?>
 

@@ -9,9 +9,9 @@ $page = 'blog';
 <?php ob_start(); ?>
 
 <div class="post-header-image" style="background-image: url(public/img/blog/thumbnails/<?= $post['id'] ?>.jpg)"></div>
-<a href="index.php" class="btn-back-posts offset-md-3"><i class="far fa-chevron-left"></i> Retour à la liste des articles</a>
-<hr class="col-md-6 mx-auto">
-<div class="post-view col-md-6">
+<a href="index.php" class="btn-back-posts offset-sm-1 offset-lg-3"><i class="far fa-chevron-left"></i> Retour à la liste des articles</a>
+<hr class="col-11 col-md-10 col-lg-6 mx-auto">
+<div class="post-view col-11 col-md-10 col-lg-6">
     <?php if (isset($_SESSION['id']) AND $_SESSION['rank'] == 2): ?>
     <div class="admin-tools">
         <a href="index.php?action=deletePost&amp;id=<?= $post['id'] ?>" class="tool-delete"><i class="far fa-trash"></i> Supprimer l'article</a>
@@ -19,7 +19,7 @@ $page = 'blog';
     </div>
     <?php endif ?>
 </div>
-<div class="post-view col-md-6">
+<div class="post-view col-11 col-md-10 col-lg-6">
     <h1 class="title"><?= htmlspecialchars($post['title']) ?></h1>
     <span>Par <?= htmlspecialchars($post['author']) ?> • le <?= strftime("%d %B %Y à %Hh%M", strtotime($post['creation_date'])) ?></span>
     <div class="content">
@@ -28,19 +28,21 @@ $page = 'blog';
     <span class="last-update">Dernière modification : <?= strftime("%d %B %Y à %Hh%M", strtotime($post['update_date'])) ?></span>
 </div>
 
-<hr class="col-md-6 mx-auto">
+<hr class="col-11 col-md-10 col-lg-6 mx-auto">
 
-<div class="comments col-md-6">
+<div class="comments col-11 col-md-10 col-lg-6">
     <h2>Commentaires</h2>
 
     <div class="form-comment">
         <form action="index.php?action=submitComment&amp;id=<?= $post['id'] ?>" method="POST">
+            <?php if (!isset($_SESSION['id'])): ?>
             <div class="row">
                 <div class="form-group col-lg-4">
                     <label for="form-comment-name">Votre nom</label>
                     <input type="text" class="form-control" name="author" id="form-comment-name" required>
                 </div>
             </div>
+            <?php endif ?>
             <div class="form-group">
                 <label for="form-comment-comment">Votre commentaire</label>
                 <textarea class="form-control" name="comment" id="form-comment-comment" required></textarea>

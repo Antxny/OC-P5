@@ -12,7 +12,7 @@
 				<li><a href="#">Portfolio</a></li>
 				<li><a href="#">A propos</a></li>
 				<li><a href="index.php?action=contact">Contact</a></li>
-				<li><a href="#">Administration</a></li>
+				<li><a href="index.php?action=manageComments">Administration</a></li>
 			</ul>
 		</div>
 		<div class="social col-md-4">

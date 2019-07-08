@@ -188,10 +188,13 @@ body {
 	border-radius: 5px 0 0 5px;
 	outline: none;
 	text-align: right;
-	width: 250px;
+	width: 70%;
+	max-width: 250px;
 }
 
 .footer-content .newsletter button {
+	width: 20%;
+	min-width: 34px;
 	padding: 7px 10px;
 	background-color: #303030;
 	color: #fff;
@@ -305,12 +308,14 @@ body {
 	padding: 150px 0 60px 0;
 	display: flex;
 	justify-content: space-around;
+	flex-wrap: wrap;
 }
 
 .preview-blog .lasts-posts .h-post {
 	overflow: hidden;
 	box-shadow: 0 0 10px lightgrey;
 	padding: 0;
+	margin: 10px 0;
 	background-color: #fff;
 	position: relative;
 	padding-bottom: 48px;
