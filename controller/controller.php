@@ -78,11 +78,20 @@ function deletePost(){
 
 }
 
-function submitComment($postId, $author, $comment){
+function submitComment($postId, $comment, $author = NULL){
 
     $commentManager = new CommentManager();
 
-    $affectedLines = $commentManager->submitComment($postId, $author, $comment);
+    if (isset($_SESSION['id'])) {
+        
+        $usermanager = new UserManager();
+        $getUser = $usermanager->getUser($_SESSION['id']);
+
+        $author =  $getUser['username'];
+
+    }
+
+    $affectedLines = $commentManager->submitComment($postId, $comment, $author);
 
     if ($affectedLines === false) {
 

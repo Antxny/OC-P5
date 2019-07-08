@@ -10,6 +10,15 @@ class UserManager extends Manager {
 
 	}
 
+	function getUser($id) {
+
+		$requser = $this->db->prepare("SELECT username FROM users WHERE id = ? ");
+		$requser->execute(array($id));
+
+		return $requser->fetch();
+
+	}
+
 	function connectUser($username, $password) {
 
 		$username_connect = htmlspecialchars($username);

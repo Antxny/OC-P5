@@ -87,15 +87,24 @@ try {
 
 	        if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-	            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+	            if (!empty($_POST['comment'])) {
 
-	                submitComment($_GET['id'], $_POST['author'], $_POST['comment']);
 
-	            } else {
+	            	if (isset($_SESSION['id'])) {
+
+	            		submitComment($_GET['id'], $_POST['comment']);
+
+	            	} elseif (!empty($_POST['author']) && !isset($_SESSION['id'])) {
+
+	            		submitComment($_GET['id'], $_POST['comment'], $_POST['author']);
+
+	            	} else {
 	                // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
+                    }
 
 	            }
+
 	        } else {
 	        	// Autre exception
 	            throw new Exception('Aucun identifiant de billet envoyé');
