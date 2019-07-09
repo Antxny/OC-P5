@@ -4,13 +4,20 @@ require_once'model/PostManager.php';
 require_once'model/CommentManager.php';
 require_once'model/UserManager.php';
 require_once'model/MailManager.php';
+require_once'model/ViewModel.php';
+
+function __construct(){
+
+    $view = new ViewModel();
+
+}
 
 function listHomePosts(){
 
     $postManager = new PostManager();
     $posts = $postManager->getHomePosts();
 
-    require'view/frontend/homeView.php';
+    $view->render('view/frontend/homeView');
 
 }
 
