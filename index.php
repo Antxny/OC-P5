@@ -1,6 +1,6 @@
 <?php
 setlocale(LC_TIME, 'fr','fr_FR','fr_FR@euro','fr_FR.utf8','fr-FR','fra');
-require('controller/controller.php');
+require'controller/controller.php';
 
 session_start();
 
@@ -28,7 +28,7 @@ try {
 	            
 	    	if (!$_POST) {
 
-	    		require('view/frontend/addPostView.php');
+	    		require'view/frontend/addPostView.php';
 
 	    	} else {
 
@@ -151,7 +151,7 @@ try {
 
 	    	if (!$_POST) {
 
-	    		require('view/frontend/loginView.php');
+	    		require'view/frontend/loginView.php';
 
 	    	} else {
 
@@ -162,7 +162,7 @@ try {
 	    		} else {
 
 	    			$error = 'Veuillez completer tous les champs !';
-	    			require('view/frontend/registerView.php');
+	    			require'view/frontend/registerView.php';
 
 	    		}
 
@@ -172,7 +172,7 @@ try {
 	            
 	    	if (!$_POST) {
 
-	    		require('view/frontend/registerView.php');
+	    		require'view/frontend/registerView.php';
 
 	    	} else {
  
@@ -183,7 +183,7 @@ try {
 	            } else {
 
 	                $error = 'Veuillez completer tous les champs !';
-	                require('view/frontend/registerView.php');
+	                require'view/frontend/registerView.php';
                     
 	            }
 	    	}
