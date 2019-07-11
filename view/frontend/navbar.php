@@ -19,7 +19,6 @@
 
                	<?php if ($_SESSION['rank'] == 2): ?>
                	<a class="dropdown-item nav-manage-comments" href="index.php?action=manageComments">Gestion des commentaires</a>
-               	<a class="dropdown-item nav-logs" href="index.php?action=logs">Afficher les logs</a>
                	<div class="dropdown-divider"></div>
                	<?php endif ?>
 

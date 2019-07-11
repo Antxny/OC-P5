@@ -8,10 +8,9 @@
 			<h1>Navigation</h1>
 			<hr>
 			<ul>
-				<li><a href="index.php">Blog</a></li>
+				<li><a href="index.php?action=listPosts">Blog</a></li>
 				<li><a href="#">Portfolio</a></li>
-				<li><a href="#">A propos</a></li>
-				<li><a href="index.php?action=contact">Contact</a></li>
+				<li><a href="index.php#contact-me">Me contacter</a></li>
 				<li><a href="index.php?action=manageComments">Administration</a></li>
 			</ul>
 		</div>

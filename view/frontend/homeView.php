@@ -101,7 +101,7 @@ $page = 'home';
 	</div>
 </div>
 
-<div class="form-contact">
+<div class="form-contact" id="contact-me">
 	<form action="index.php" method="POST" class="col-10 col-lg-6 mx-auto">
 
         <?php if (isset($_SESSION['mail_msg'])): ?>
