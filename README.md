@@ -1,4 +1,7 @@
 # OpenClassrooms - Créez votre premier blog en PHP
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/85d6f9be8ff1497988cc7e54f653c186)](https://app.codacy.com/app/RayyZen/OC-P5?utm_source=github.com&utm_medium=referral&utm_content=RayyZen/OC-P5&utm_campaign=Badge_Grade_Dashboard)
+
 ## Parcours Développeur d'application - PHP / Symfony
 
 Library : Bootstrap, FontAwesome PRO
