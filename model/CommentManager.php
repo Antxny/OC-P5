@@ -27,10 +27,10 @@ class CommentManager extends Manager {
 
 	}
 
-	function submitComment($postId, $comment, $author){
+	function submitComment($postId, $author, $comment){
 
-	    $submitcomment = $this->db->prepare('INSERT INTO comments (post_id, comment, author, comment_date) VALUES (?, ?, ?, NOW())');
-	    $affectedLines = $submitcomment->execute(array($postId, $comment, $author));
+	    $submitcomment = $this->db->prepare('INSERT INTO comments (post_id, author, comment, comment_date) VALUES (?, ?, ?, NOW())');
+	    $affectedLines = $submitcomment->execute(array($postId, $author, $comment));
 
 	    return $affectedLines;
 	}

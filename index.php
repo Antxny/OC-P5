@@ -1,6 +1,6 @@
 <?php
 setlocale(LC_TIME, 'fr','fr_FR','fr_FR@euro','fr_FR.utf8','fr-FR','fra');
-require'controller/controller.php';
+require('controller/controller.php');
 
 session_start();
 
@@ -28,7 +28,7 @@ try {
 	            
 	    	if (!$_POST) {
 
-	    		require'view/frontend/addPostView.php';
+	    		require('view/frontend/addPostView.php');
 
 	    	} else {
 
@@ -87,24 +87,15 @@ try {
 
 	        if (isset($_GET['id']) && $_GET['id'] > 0) {
 
-	            if (!empty($_POST['comment'])) {
+	            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
 
+	                submitComment($_GET['id'], $_POST['author'], $_POST['comment']);
 
-	            	if (isset($_SESSION['id'])) {
-
-	            		submitComment($_GET['id'], $_POST['comment']);
-
-	            	} elseif (!empty($_POST['author']) && !isset($_SESSION['id'])) {
-
-	            		submitComment($_GET['id'], $_POST['comment'], $_POST['author']);
-
-	            	} else {
+	            } else {
 	                // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
-                    }
 
 	            }
-
 	        } else {
 	        	// Autre exception
 	            throw new Exception('Aucun identifiant de billet envoyé');
@@ -151,7 +142,7 @@ try {
 
 	    	if (!$_POST) {
 
-	    		require'view/frontend/loginView.php';
+	    		require('view/frontend/loginView.php');
 
 	    	} else {
 
@@ -162,7 +153,7 @@ try {
 	    		} else {
 
 	    			$error = 'Veuillez completer tous les champs !';
-	    			require'view/frontend/registerView.php';
+	    			require('view/frontend/registerView.php');
 
 	    		}
 
@@ -172,7 +163,7 @@ try {
 	            
 	    	if (!$_POST) {
 
-	    		require'view/frontend/registerView.php';
+	    		require('view/frontend/registerView.php');
 
 	    	} else {
  
@@ -183,7 +174,7 @@ try {
 	            } else {
 
 	                $error = 'Veuillez completer tous les champs !';
-	                require'view/frontend/registerView.php';
+	                require('view/frontend/registerView.php');
                     
 	            }
 	    	}

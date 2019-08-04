@@ -12,12 +12,10 @@ class MailManager extends Manager {
 
 	function sendMail($name, $f_name, $email, $subject, $message){
 
-        require('config/mail.php');
-
 		$sendmail = $this->db->prepare('INSERT INTO mails (name, f_name, email, message) VALUES (?, ?, ?, ?)');
 	    $affectedLines = $sendmail->execute(array($name, $f_name, $email, $message));
 
-	    $receiver = $mail;
+	    $receiver = 'contact@avrgn.fr';
         $name = htmlspecialchars($name);
         $f_name = htmlspecialchars($f_name);
        	$mail = htmlspecialchars($email);

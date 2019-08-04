@@ -23,7 +23,7 @@ while ($data = $posts->fetch()){
 
 ?>
 
-<div class="post col-12 col-md-10 col-lg-6">
+<div class="post col-md-6">
     <div class="thumbnail col-md-3 col-sm-5">
 
         <?php if (file_exists('public/img/blog/thumbnails/' .$data['id'] . '.jpg')): ?>
@@ -70,7 +70,7 @@ while ($data = $posts->fetch()){
             <div>
                 <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire plus</a>
             </div>
-            <span><?= $data['author'] .' • ' .strftime("%d %B %Y", strtotime($data['update_date'])) ?></span>
+            <span><?= $data['author'] .' • ' .strftime("%d %B %Y", strtotime($data['creation_date'])) ?></span>
         </div>
     </div>
 </div>

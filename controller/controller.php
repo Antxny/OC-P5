@@ -1,16 +1,16 @@
 <?php
 
-require_once'model/PostManager.php';
-require_once'model/CommentManager.php';
-require_once'model/UserManager.php';
-require_once'model/MailManager.php';
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
+require_once('model/MailManager.php');
 
 function listHomePosts(){
 
     $postManager = new PostManager();
     $posts = $postManager->getHomePosts();
 
-    require'view/frontend/homeView.php';
+    require('view/frontend/homeView.php');
 
 }
 
@@ -19,7 +19,7 @@ function listAllPosts(){
     $postManager = new PostManager();
     $posts = $postManager->getAllPosts();
 
-    require'view/frontend/listPostsView.php';
+    require('view/frontend/listPostsView.php');
 
 }
 
@@ -31,7 +31,7 @@ function post(){
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require'view/frontend/postView.php';
+    require('view/frontend/postView.php');
 
 }
 
@@ -52,7 +52,7 @@ function editPost(){
 
     $postManager = new PostManager();
     $post = $postManager->editPost($_GET['id']);
-    require'view/frontend/editPostView.php';
+    require('view/frontend/editPostView.php');
 
 }
 
@@ -78,20 +78,11 @@ function deletePost(){
 
 }
 
-function submitComment($postId, $comment, $author = NULL){
+function submitComment($postId, $author, $comment){
 
     $commentManager = new CommentManager();
 
-    if (isset($_SESSION['id'])) {
-        
-        $usermanager = new UserManager();
-        $getUser = $usermanager->getUser($_SESSION['id']);
-
-        $author =  $getUser['username'];
-
-    }
-
-    $affectedLines = $commentManager->submitComment($postId, $comment, $author);
+    $affectedLines = $commentManager->submitComment($postId, $author, $comment);
 
     if ($affectedLines === false) {
 
@@ -127,7 +118,7 @@ function manageComments(){
     $commentManager = new CommentManager(); // Création d'un objet
     $comments = $commentManager->getAllComments(); 
 
-    require'view/frontend/commentsPannelView.php';
+    require('view/frontend/commentsPannelView.php');
     
 }
 
@@ -140,7 +131,7 @@ function connectUser($username, $password){
     if ($userInfos === false) {
 
         $error = 'Nom d\'utilisateur et/ou mot de passe incorrect :(';
-        require'view/frontend/loginView.php';
+        require('view/frontend/loginView.php');
 
     } else {
 

@@ -23,15 +23,14 @@ $page = 'home';
 </div>
 
 <div class="preview-blog">
-	<div class="lasts-posts col-11 ">
+	<div class="lasts-posts col-lg-10 col-md-6">
 
 		<?php 
 
 		while ($data = $posts->fetch()){
 
 		?>
-
-		<div class="h-post col-12 col-md-3">
+		<div class="h-post col-12 col-lg-3">
 			<div class="thumbnail-post" style="background-image: url(public/img/blog/thumbnails/<?= $data['id'] ?>.jpg)"></div>
 			<div class="h-post-content">
 				<h1>
@@ -69,7 +68,7 @@ $page = 'home';
 			</div>
 			<div class="h-post-infos">
 				<span><i class="fas fa-user"></i><?= $data['author'] ?></span>
-				<span><?= strftime("%d %B %Y", strtotime($data['update_date'])) ?><i class="fas fa-calendar-alt"></i></span>
+				<span><?= strftime("%d %B %Y", strtotime($data['creation_date'])) ?><i class="fas fa-calendar-alt"></i></span>
 			</div>
 		</div>
 
@@ -101,7 +100,7 @@ $page = 'home';
 	</div>
 </div>
 
-<div class="form-contact" id="contact-me">
+<div class="form-contact">
 	<form action="index.php" method="POST" class="col-10 col-lg-6 mx-auto">
 
         <?php if (isset($_SESSION['mail_msg'])): ?>

@@ -10,4 +10,5 @@ class Manager{
 		return $db;
 
     }
+    
 }
