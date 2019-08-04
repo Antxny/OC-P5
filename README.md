@@ -15,5 +15,5 @@ Pour utiliser ce blog, il faut suivre les étapes suivantes :
 
 ## Installation
 Informations de connexion pour la partie administration :
-Nom d'utilisateur : admin
-Mot de passe : admin
+* Nom d'utilisateur : admin
+* Mot de passe : admin
