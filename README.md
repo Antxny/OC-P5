@@ -13,7 +13,7 @@ Pour utiliser ce blog, il faut suivre les étapes suivantes :
 * Entrez vos informations de connexion à la base de données dans le fichier Config/db_config.php
 * Pour le formulaire de contact : insérez votre adresse mail dans le fichier Config/mail.php
 
-## Installation
+## Compte Administration
 Informations de connexion pour la partie administration :
 * Nom d'utilisateur : admin
 * Mot de passe : admin
